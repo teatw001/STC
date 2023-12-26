@@ -4,7 +4,7 @@ import { IFilms } from "../interface/model";
 const filmsAPI = createApi({
   reducerPath: "films",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseUrl: "https://stcinemas.id.vn/api/",
   }),
   tagTypes: ["film"],
   endpoints: (builder) => ({
@@ -55,6 +55,6 @@ export const {
   useUpdateProductMutation,
   useGetProductByIdQuery,
   useGetFilmCinemeByIdQuery,
-  useAVG_FilmsQuery
+  useAVG_FilmsQuery,
 } = filmsAPI;
 export default filmsAPI;

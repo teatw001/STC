@@ -4,7 +4,7 @@ import { IChairs } from "../interface/model";
 const bookingSeatAPI = createApi({
   reducerPath: "bkseats",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseUrl: "https://stcinemas.id.vn/api/",
   }),
   tagTypes: ["chairs"],
   endpoints: (builder) => ({

@@ -4,7 +4,7 @@ import { IMember } from "../interface/member.interface";
 const memberAPI = createApi({
   reducerPath: "memberAPI",
   baseQuery: fetchBaseQuery({
-    baseUrl:process.env.REACT_APP_API_URL,
+    baseUrl: "https://stcinemas.id.vn/api/",
   }),
   tagTypes: ["member"],
   endpoints: (builder) => ({

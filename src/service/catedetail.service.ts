@@ -4,7 +4,7 @@ import { ICateDetail } from "../interface/model";
 const cateDetailAPI = createApi({
   reducerPath: "catedetails",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseUrl: "https://stcinemas.id.vn/api/",
   }),
   tagTypes: ["catedetail"],
   endpoints: (builder) => ({

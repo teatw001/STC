@@ -4,7 +4,7 @@ import { IComments } from "../interface/model";
 const commentsFilmAPI = createApi({
   reducerPath: "commentsfilm",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseUrl: "https://stcinemas.id.vn/api/",
     prepareHeaders: (headers, { getState }) => {
       // Add your authorization header here
       const token = localStorage.getItem("authToken");

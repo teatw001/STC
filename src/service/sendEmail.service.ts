@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const sendEmailAPI = createApi({
   reducerPath: "sendEmail",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseUrl: "https://stcinemas.id.vn/api/",
     prepareHeaders: (headers, { getState }) => {
       // Add your authorization header here
       const token = localStorage.getItem("authToken");

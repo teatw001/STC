@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const analyticApi = createApi({
   reducerPath: "analyticApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseUrl: "https://stcinemas.id.vn/api/",
     prepareHeaders: (headers, { getState }) => {
       // Add your authorization header here
       const token = localStorage.getItem("authToken");

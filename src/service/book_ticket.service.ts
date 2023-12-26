@@ -4,7 +4,7 @@ import { IBookTicket, IBookTicketUser, IUser } from "../interface/model";
 const bookTicketsAPI = createApi({
   reducerPath: "bookTickets",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseUrl: "https://stcinemas.id.vn/api/",
   }),
   tagTypes: ["bookTicket"],
   endpoints: (builder) => ({

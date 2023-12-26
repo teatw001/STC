@@ -3,7 +3,7 @@ import { ITime } from "../interface/model";
 const timesAPI = createApi({
   reducerPath: "times",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseUrl: "https://stcinemas.id.vn/api/",
   }),
   tagTypes: ["time"],
   endpoints: (builder) => ({

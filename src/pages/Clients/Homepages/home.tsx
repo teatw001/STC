@@ -1,7 +1,7 @@
 import Header from "../../../Layout/LayoutUser/Header";
 import { Link } from "react-router-dom";
 import FindBookQuickly from "../../../components/Find&BookQuickly/Find&BookQuickly";
-import { useFetchBlogQuery } from "../../../service/blog.service";
+// import { useFetchBlogQuery } from "../../../service/blog.service";
 
 import { IBlogs } from "../../../interface/model";
 
@@ -11,7 +11,7 @@ import "../../../index.css";
 const HomePages = () => {
   const [displayedBlogs, setDisplayedBlogs] = useState(3);
 
-  const { data: blogs } = useFetchBlogQuery() as any;
+  // const { data: blogs } = useFetchBlogQuery() as any;
 
   console.log(blogs);
   const handleShowMore = () => {

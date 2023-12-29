@@ -44,8 +44,8 @@ import ListUser from "./pages/Admin/User/ListUser";
 import MemberInfo from "./pages/Clients/member-info/member-info";
 import MemberInfoAdmin from "./pages/Admin/Members/Members";
 import ResultSuccess from "./pages/Clients/Result/ResultSuccess";
-import ListBlog from "./pages/Admin/Blogs/ListBlog";
-import BlogsDetail from "./pages/Clients/Blogs-Detail/BlogsDetail";
+// import ListBlog from "./pages/Admin/Blogs/ListBlog";
+// import BlogsDetail from "./pages/Clients/Blogs-Detail/BlogsDetail";
 import Dashbroad from "./pages/Admin/Dashbroad/Dashbroad";
 import ResultPaymentCoin from "./components/Clients/ResultPaymentCoin/ResultPaymentCoin";
 import Dashbroad_Admin_Cinema from "./pages/Admin/Dashbroad/Dashboard-Admin_Cinema";
@@ -113,10 +113,10 @@ function App() {
           path: "/Tiketbookingdetail",
           element: <TicketBookingDetails />,
         },
-        {
-          path: "/blog/:id",
-          element: <BlogsDetail />,
-        },
+        // {
+        //   path: "/blog/:id",
+        //   element: <BlogsDetail />,
+        // },
         {
           path: "/info_account",
           element: <LayoutProfile />,
@@ -214,10 +214,10 @@ function App() {
           path: "/admin/user",
           element: <ListUser />,
         },
-        {
-          path: "/admin/blogs",
-          element: <ListBlog />,
-        },
+        // {
+        //   path: "/admin/blogs",
+        //   element: <ListBlog />,
+        // },
       ],
     },
     {

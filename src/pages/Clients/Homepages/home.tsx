@@ -3,23 +3,23 @@ import { Link } from "react-router-dom";
 import FindBookQuickly from "../../../components/Find&BookQuickly/Find&BookQuickly";
 // import { useFetchBlogQuery } from "../../../service/blog.service";
 
-import { IBlogs } from "../../../interface/model";
+// import { IBlogs } from "../../../interface/model";
 
-import { useState } from "react";
+// import { useState } from "react";
 import "../../../index.css";
 
 const HomePages = () => {
-  const [displayedBlogs, setDisplayedBlogs] = useState(3);
+  // const [displayedBlogs, setDisplayedBlogs] = useState(3);
 
   // const { data: blogs } = useFetchBlogQuery() as any;
 
-  console.log(blogs);
-  const handleShowMore = () => {
-    setDisplayedBlogs(displayedBlogs + 10);
-  };
-  const handleShowLess = () => {
-    setDisplayedBlogs(3);
-  };
+  // console.log(blogs);
+  // const handleShowMore = () => {
+  //   setDisplayedBlogs(displayedBlogs + 10);
+  // };
+  // const handleShowLess = () => {
+  //   setDisplayedBlogs(3);
+  // };
 
   return (
     <>
@@ -54,7 +54,7 @@ const HomePages = () => {
         </span>
 
         <div className="What’s On img my-10 grid grid-cols-3 gap-8">
-          {blogs &&
+          {/* {blogs &&
             blogs?.data?.slice(0, displayedBlogs).map((blog: IBlogs) =>
               blog.status === 1 ? (
                 <article
@@ -75,10 +75,10 @@ const HomePages = () => {
                   </div>
                 </article>
               ) : null
-            )}
+            )} */}
         </div>
 
-        {blogs?.data?.length > 3 && (
+        {/* {blogs?.data?.length > 3 && (
           <span className="block text-center">
             {displayedBlogs === 3 ? (
               <u
@@ -96,7 +96,7 @@ const HomePages = () => {
               </u>
             )}
           </span>
-        )}
+        )} */}
       </div>
       <div className="Special Features  max-w-6xl  px-10 mx-auto my-[66px]">
         <h2 className="text-[#FFFFFF] text-[40px] font-bold text-center">

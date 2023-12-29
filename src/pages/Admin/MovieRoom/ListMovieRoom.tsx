@@ -14,7 +14,6 @@ import { ICinemas, IMovieRoom } from "../../../interface/model";
 import AddMovieRoom from "./AddMovieRoom";
 import EditMovieRoom from "./EditMovieRoom";
 import { FilterValue } from "antd/es/table/interface";
-import { useNavigate } from "react-router-dom";
 
 interface DataType {
   id: string;
@@ -42,7 +41,6 @@ const ListMovieRoom: React.FC = () => {
   const role = user?.role;
   const id_cinema = user.id_cinema;
   const [updateMovieRoom] = useUpdateMovieRoomMutation();
-  const navigate = useNavigate();
 
   const onChange = async (checked: boolean, item: any) => {
     const status = checked ? 1 : 0;
@@ -170,11 +168,8 @@ const ListMovieRoom: React.FC = () => {
   );
 
   const [dataList, setDataList] = useState<any>(null);
-  const handleChange: TableProps<DataType>["onChange"] = (
-
-    filters
-  ) => {
-    setFilteredInfo((filters as any));
+  const handleChange: TableProps<DataType>["onChange"] = (filters) => {
+    setFilteredInfo(filters as any);
   };
   const onSearch = (value: any, _e: any) => {
     if (role === 1) {

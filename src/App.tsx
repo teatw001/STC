@@ -250,7 +250,7 @@ function App() {
       try {
         // Dispatch the actions and wait for them to complete
         await Promise.all([
-          dispatch(setSelectedCinema(null)),
+          dispatch(setSelectedCinema()),
           dispatch(updateToken(null)),
           dispatch(setUserId(null)),
           localStorage.clear(),

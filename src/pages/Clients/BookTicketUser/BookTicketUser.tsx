@@ -16,7 +16,6 @@ import { useEffect, useState } from "react";
 import { useFetchProductQuery } from "../../../service/films.service";
 import { useSendRefundMutation } from "../../../service/refund.service";
 
-
 export interface DataType {
   time: string;
   name: string;
@@ -83,7 +82,9 @@ const BookTicketUser = () => {
     return moment(dateString).format("DD/MM/YYYY HH:mm:ss");
   };
   const getUniqueValues = (dataList: string, key: any) => {
-    return Array.from(new Set((dataList as any)?.data?.map((item: any) => item[key])));
+    return Array.from(
+      new Set((dataList as any)?.data?.map((item: any) => item[key]))
+    );
   };
   const columns: ColumnsType<DataType> = [
     {
@@ -124,13 +125,7 @@ const BookTicketUser = () => {
                     label="Mã hóa đơn"
                     labelStyle={{ width: "100px" }}
                   >
-                    <div
-                      style={{
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        width: "150px",
-                      }}
-                    >
+                    <div className="overflow-hidden w-[150px]">
                       {(selectedRecord as any)?.id_code}
                     </div>
                   </Descriptions.Item>
@@ -169,7 +164,9 @@ const BookTicketUser = () => {
                       </p>
                       <p className="whitespace-nowrap">
                         <b>Tổng Tiền</b>:{" "}
-                        {formatter(Number((selectedRecord as any)?.chair?.price))}
+                        {formatter(
+                          Number((selectedRecord as any)?.chair?.price)
+                        )}
                       </p>
                     </div>
                   </Descriptions.Item>
@@ -189,18 +186,22 @@ const BookTicketUser = () => {
                     label="Trạng thái"
                     labelStyle={{ width: "100px" }}
                   >
-                    {(selectedRecord as any)?.status?.status === "Đã Nhận Vé" ? (
+                    {(selectedRecord as any)?.status?.status ===
+                    "Đã Nhận Vé" ? (
                       <Tag color="success">Đã Nhận Vé</Tag>
                     ) : (selectedRecord as any)?.status?.status === "Đã Hủy" ? (
                       <Tag color="warning">Đã Hủy</Tag>
-                    ) : (selectedRecord as any)?.status?.status === "Quá Hạn" ? (
+                    ) : (selectedRecord as any)?.status?.status ===
+                      "Quá Hạn" ? (
                       <Tag color="error">Quá Hạn</Tag>
                     ) : (
                       <div>
                         <Button
                           style={{ backgroundColor: "#f04848", color: "#ffff" }}
                           onClick={() =>
-                            showModal(+(selectedRecord as any)?.status?.id_book_ticket)
+                            showModal(
+                              +(selectedRecord as any)?.status?.id_book_ticket
+                            )
                           }
                         >
                           Hoàn Tiền
@@ -255,15 +256,17 @@ const BookTicketUser = () => {
       key: "name",
       align: "center",
       width: "10%",
-      filters: getUniqueValues(film as any, "name")?.map((item) => ({
-        text: item,
-        value: item,
-      })),
+      filters: getUniqueValues(film as any, "name")?.map(
+        (item) =>
+          ({
+            text: item,
+            value: item,
+          } as any)
+      ),
       filteredValue: filteredInfo?.name || null,
-      onFilter: (value: string, record) => {
-        console.log(record);
-        return (record as any).name?.name.includes(value);
-      },
+      onFilter: ((value: string, record: any) => {
+        return (record as any).name?.name.includes(value) as any;
+      }) as any,
       render: (text: any) => (
         <div>
           {text && (
@@ -350,8 +353,8 @@ const BookTicketUser = () => {
         { text: "Hoàn Tiền", value: "Hoàn Tiền" },
       ],
       filteredValue: filteredInfo.status || null,
-      onFilter: (value: string, record) =>
-        (record as any).status.status === value,
+      onFilter: ((value: string, record: any) =>
+        (record as any).status.status === value) as any,
       render: (text) => {
         if (text.status === "Đã Nhận Vé") {
           return <Tag color="success">Đã Nhận Vé</Tag>;
@@ -451,13 +454,10 @@ const BookTicketUser = () => {
     );
     setDataBook(dataBookTicket);
   }, [fetchBookTicket]);
-  const handleChange: TableProps<DataType>["onChange"] = (
-
-    filters
-  ) => {
+  const handleChange: TableProps<DataType>["onChange"] = (filters) => {
     console.log(filters);
 
-    setFilteredInfo((filters as any));
+    setFilteredInfo(filters as any);
   };
   return (
     <div>

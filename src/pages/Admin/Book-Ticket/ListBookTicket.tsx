@@ -25,7 +25,10 @@ import { useFetchCinemaQuery } from "../../../service/brand.service";
 import { useFetchMovieRoomQuery } from "../../../service/movieroom.service";
 
 import { compareDates } from "../../../utils";
-
+type UsersNameFilterValue = {
+  text: string;
+  value: string;
+};
 const ListBookTicket: React.FC = () => {
   const [filteredInfo, setFilteredInfo] = useState<
     Record<string, FilterValue | null>
@@ -109,16 +112,16 @@ const ListBookTicket: React.FC = () => {
       width: 100,
       dataIndex: "users_name",
       key: "users_name",
-      style: "ml-10",
+
       align: "center",
       fixed: "left",
       filters: getUniqueValues(user, "name")?.map((item) => ({
         text: item,
         value: item,
-      })),
+      })) as UsersNameFilterValue[],
       filteredValue: filteredInfo.users_name || null,
-      onFilter: (value: string, record: DataType) =>
-        (record as any)?.users_name === value,
+      onFilter: ((value: string, record: DataType) =>
+        (record as any)?.users_name === value) as any,
     },
     {
       title: "Trạng Thái",
@@ -483,7 +486,7 @@ const ListBookTicket: React.FC = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const handleChange: TableProps<DataType>["onChange"] = (filters) => {
-    setFilteredInfo((filters as any));
+    setFilteredInfo(filters as any);
   };
   const onSearch = (value: string) => {
     setSearchTerm(value);

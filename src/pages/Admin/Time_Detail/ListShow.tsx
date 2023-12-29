@@ -85,8 +85,8 @@ const ListShow: React.FC = () => {
         value: item.name,
       })),
       filteredValue: filteredInfo.film_id || null,
-      onFilter: (value: string, record: DataType) =>
-        record.film_id.includes(value),
+      onFilter: ((value: string, record: DataType) =>
+        record.film_id.includes(value)) as any,
     },
     {
       title: "Thời gian",
@@ -97,8 +97,8 @@ const ListShow: React.FC = () => {
         value: item.time,
       })),
       filteredValue: filteredInfo.time_id || null,
-      onFilter: (value: string, record: DataType) =>
-        record.time_id.includes(value),
+      onFilter: ((value: string, record: DataType) =>
+        record.time_id.includes(value)) as any,
     },
     {
       title: "Phòng Chiếu",
@@ -109,13 +109,13 @@ const ListShow: React.FC = () => {
         value: item.name,
       })),
       filteredValue: filteredInfo.room_id || null,
-      onFilter: (value: string, record: DataType) =>
-        record.room_id.includes(value),
+      onFilter: ((value: string, record: DataType) =>
+        record.room_id.includes(value)) as any,
     },
     {
       title: role !== 1 && "Rạp Chiếu",
-      dataIndex: role !== 1 && "name",
-      key: role !== 1 && "name",
+      dataIndex: (role !== 1 && "name") as any,
+      key: (role !== 1 && "name") as any,
     },
     {
       title: role === 1 && "Action",
@@ -198,7 +198,7 @@ const ListShow: React.FC = () => {
       room_id: (roomBrand as any)?.data?.find(
         (room: IMovieRoom) => room.id === show.room_id
       )?.name,
-      name: show?.name,
+      name: (show as any)?.name,
       status: show.status,
     };
   });
@@ -206,7 +206,7 @@ const ListShow: React.FC = () => {
   const handleChange: TableProps<DataType>["onChange"] = (filters) => {
     console.log(filters);
 
-    setFilteredInfo(filters);
+    setFilteredInfo(filters as any);
   };
   const [dataShows, setDateShows] = useState<any>(null);
 

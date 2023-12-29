@@ -36,7 +36,7 @@ const Orther = () => {
             src="https://www.youtube.com/embed/HyuykY4fOxA"
             title="Embedded Video"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="fullscreen"
             allowFullScreen
           />
           <button className="rounded-[40px] font-[500] text-white bg-[#EE2E24] w-[125px] h-[45px] mt-[25px] ">

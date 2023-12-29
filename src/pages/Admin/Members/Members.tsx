@@ -27,7 +27,7 @@ const MemberInfoAdmin = () => {
     `${value} ₫`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   // Lọc ra các giá trị duy nhất từ danh sách rạp chiếu
   const getUniqueValues = (dataList: any, key: any) => {
-    return Array.from(new Set(dataList?.data?.map((item:any) => item[key])));
+    return Array.from(new Set(dataList?.data?.map((item: any) => item[key])));
   };
 
   const columns: ColumnsType<DataType> = [
@@ -35,10 +35,13 @@ const MemberInfoAdmin = () => {
       title: "Người Dùng",
       dataIndex: "id_user",
       key: "id_user",
-      filters: getUniqueValues(user, "name")?.map((item) => ({
-        text: item,
-        value: item,
-      })),
+      filters: getUniqueValues(user, "name")?.map(
+        (item) =>
+          ({
+            text: item,
+            value: item,
+          } as any)
+      ),
       filteredValue: filteredInfo.id_user || null,
       onFilter: (value: any, record) => record.id_user === value,
     },
@@ -125,11 +128,8 @@ const MemberInfoAdmin = () => {
     })
   );
   const [dataList, setDataList] = useState<any>(null);
-  const handleChange: TableProps<DataType>["onChange"] = (
-
-    filters
-  ) => {
-    setFilteredInfo(filters);
+  const handleChange: TableProps<DataType>["onChange"] = (filters) => {
+    setFilteredInfo(filters as any);
   };
   const onSearch = (value: any, _e: any) => {
     const results = dataUser.filter((item: any) =>

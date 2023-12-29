@@ -19,7 +19,7 @@ const Top5user_friendly: React.FC<Top5user_friendlyProps> = ({ data }) => {
       title: "Stt",
       dataIndex: "key",
       align: "center",
-      render: (text, record, index) => <span>{index + 1}</span>,
+      render: ( index) => <span>{index + 1}</span>,
     },
     {
       title: "Tên",

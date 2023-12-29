@@ -14,13 +14,10 @@ import {
   message,
 } from "antd";
 const { Option } = Select;
-import { useNavigate } from "react-router-dom";
+
 import { useAddShowTimeMutation } from "../../../service/show.service";
-import {
-  useAddTimeMutation,
-  useFetchTimeQuery,
-} from "../../../service/time.service";
-import { IFilms, IMovieRoom, ITime } from "../../../interface/model";
+import { useFetchTimeQuery } from "../../../service/time.service";
+import { IFilms, IMovieRoom } from "../../../interface/model";
 import { useFetchProductQuery } from "../../../service/films.service";
 import { useFetchMovieRoomQuery } from "../../../service/movieroom.service";
 import { useFetchCinemaQuery } from "../../../service/brand.service";
@@ -31,13 +28,14 @@ const AddShow: React.FC = () => {
   const role = user?.role;
   const cinema_admin = user?.id_cinema;
 
-  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const { data: films } = useFetchProductQuery();
   const { data: times } = useFetchTimeQuery();
   const { data: cinemas } = useFetchCinemaQuery();
   const { data: roomBrand } = useFetchMovieRoomQuery();
   const [selectedCinema, setSelectedCinema] = useState(null);
+  console.log(selectedCinema);
+
   const [roomByCinema, setRoomByCinema] = useState([]);
   const roomByCinemaaa = (roomBrand as any)?.data?.filter(
     (room: any) => room.id_cinema == cinema_admin
@@ -90,7 +88,7 @@ const AddShow: React.FC = () => {
     console.log(roomByCinema);
 
     setRoomByCinema(roomByCinema);
-    setSelectedCinema(value);
+    setSelectedCinema(value as any);
     form.setFieldsValue({ room_id: roomByCinema }); // Đặt lại giá trị phòng chiếu khi chọn rạp mới
   };
 

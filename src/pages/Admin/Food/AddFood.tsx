@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { PlusOutlined, UserAddOutlined } from "@ant-design/icons";
+import {  UserAddOutlined } from "@ant-design/icons";
 import {
   Button,
   Col,
@@ -10,7 +10,7 @@ import {
   Row,
   // Select,
   Space,
-  Upload,
+
   message,
 } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +23,7 @@ const AddFood: React.FC = () => {
   const [addFood] = useAddFoodMutation();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const [imageFileList, setImageFileList] = useState<any>([]);
+
   const showDrawer = () => {
     setOpen(true);
   };

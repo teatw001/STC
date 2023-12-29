@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Input, Modal, message } from "antd";
+import {  Input, Modal, message } from "antd";
 import { usePaymentCoinsMutation } from "../../../service/usecoin.service";
 import { useSelector } from "react-redux";
 import { useAddBookTicketMutation } from "../../../service/book_ticket.service";
@@ -10,8 +10,7 @@ import { useAddChairsMutation } from "../../../service/chairs.service";
 import { useDiscountPointMutation } from "../../../service/member.service";
 import { format } from "date-fns";
 import * as moment from "moment-timezone";
-import Loading from "../../../components/isLoading/Loading";
-import ResultPaymentCoin from "../../../components/Clients/ResultPaymentCoin/ResultPaymentCoin";
+
 import { useNavigate } from "react-router-dom";
 interface PaymentCoinProps {
   showPopCorn: any;

@@ -15,7 +15,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { useFetchProductQuery } from "../../../service/films.service";
 import { useSendRefundMutation } from "../../../service/refund.service";
-import { formatDatee } from "../../../utils";
+
 
 export interface DataType {
   time: string;
@@ -57,8 +57,8 @@ const BookTicketUser = () => {
   const handleOk = async () => {
     try {
       const res = await sendRefund({ password: password, id: id });
-      if (res?.error?.data?.message) {
-        message.error(res?.error?.data?.message);
+      if ((res as any)?.error?.data?.message) {
+        message.error((res as any)?.error?.data?.message);
         setIsModalVisible(false);
         return;
       }
@@ -83,7 +83,7 @@ const BookTicketUser = () => {
     return moment(dateString).format("DD/MM/YYYY HH:mm:ss");
   };
   const getUniqueValues = (dataList: string, key: any) => {
-    return Array.from(new Set(dataList?.data?.map((item: any) => item[key])));
+    return Array.from(new Set((dataList as any)?.data?.map((item: any) => item[key])));
   };
   const columns: ColumnsType<DataType> = [
     {
@@ -111,11 +111,11 @@ const BookTicketUser = () => {
               {selectedRecord && (
                 <Descriptions bordered column={2}>
                   <Descriptions.Item label="Tên phim">
-                    {selectedRecord?.name?.name}
+                    {(selectedRecord as any)?.name?.name}
                   </Descriptions.Item>
                   <Descriptions.Item label="Ảnh">
                     <Image
-                      src={selectedRecord?.name?.img}
+                      src={(selectedRecord as any)?.name?.img}
                       className="max-w-[100px]"
                       alt="Hình ảnh phim"
                     />
@@ -131,20 +131,20 @@ const BookTicketUser = () => {
                         width: "150px",
                       }}
                     >
-                      {selectedRecord?.id_code}
+                      {(selectedRecord as any)?.id_code}
                     </div>
                   </Descriptions.Item>
                   <Descriptions.Item
                     label="Phòng chiếu"
                     labelStyle={{ width: "100px" }}
                   >
-                    {selectedRecord?.movie_room_name}
+                    {(selectedRecord as any)?.movie_room_name}
                   </Descriptions.Item>
                   <Descriptions.Item
                     label="Rạp chiếu"
                     labelStyle={{ width: "100px" }}
                   >
-                    {selectedRecord?.name_cinema}
+                    {(selectedRecord as any)?.name_cinema}
                   </Descriptions.Item>
                   <Descriptions.Item
                     label="Suất chiếu"
@@ -152,10 +152,10 @@ const BookTicketUser = () => {
                   >
                     <div>
                       <p className="whitespace-nowrap">
-                        Ngày: {selectedRecord?.date?.date}
+                        Ngày: {(selectedRecord as any)?.date?.date}
                       </p>
                       <p className="whitespace-nowrap">
-                        Giờ: {selectedRecord?.date?.time}
+                        Giờ: {(selectedRecord as any)?.date?.time}
                       </p>
                     </div>
                   </Descriptions.Item>
@@ -165,11 +165,11 @@ const BookTicketUser = () => {
                   >
                     <div>
                       <p className="whitespace-nowrap">
-                        {selectedRecord?.chair?.name}
+                        {(selectedRecord as any)?.chair?.name}
                       </p>
                       <p className="whitespace-nowrap">
                         <b>Tổng Tiền</b>:{" "}
-                        {formatter(Number(selectedRecord?.chair?.price))}
+                        {formatter(Number((selectedRecord as any)?.chair?.price))}
                       </p>
                     </div>
                   </Descriptions.Item>
@@ -177,30 +177,30 @@ const BookTicketUser = () => {
                     label="Combo/Package"
                     labelStyle={{ width: "100px" }}
                   >
-                    {selectedRecord?.food_items}
+                    {(selectedRecord as any)?.food_items}
                   </Descriptions.Item>
                   <Descriptions.Item
                     label="Ngày đặt"
                     labelStyle={{ width: "100px" }}
                   >
-                    <span>{formatDate(selectedRecord?.time)}</span>
+                    <span>{formatDate((selectedRecord as any)?.time)}</span>
                   </Descriptions.Item>
                   <Descriptions.Item
                     label="Trạng thái"
                     labelStyle={{ width: "100px" }}
                   >
-                    {selectedRecord?.status?.status === "Đã Nhận Vé" ? (
+                    {(selectedRecord as any)?.status?.status === "Đã Nhận Vé" ? (
                       <Tag color="success">Đã Nhận Vé</Tag>
-                    ) : selectedRecord?.status?.status === "Đã Hủy" ? (
+                    ) : (selectedRecord as any)?.status?.status === "Đã Hủy" ? (
                       <Tag color="warning">Đã Hủy</Tag>
-                    ) : selectedRecord?.status?.status === "Quá Hạn" ? (
+                    ) : (selectedRecord as any)?.status?.status === "Quá Hạn" ? (
                       <Tag color="error">Quá Hạn</Tag>
                     ) : (
                       <div>
                         <Button
                           style={{ backgroundColor: "#f04848", color: "#ffff" }}
                           onClick={() =>
-                            showModal(+selectedRecord?.status?.id_book_ticket)
+                            showModal(+(selectedRecord as any)?.status?.id_book_ticket)
                           }
                         >
                           Hoàn Tiền
@@ -452,12 +452,12 @@ const BookTicketUser = () => {
     setDataBook(dataBookTicket);
   }, [fetchBookTicket]);
   const handleChange: TableProps<DataType>["onChange"] = (
-    pagination,
+
     filters
   ) => {
     console.log(filters);
 
-    setFilteredInfo(filters);
+    setFilteredInfo((filters as any));
   };
   return (
     <div>

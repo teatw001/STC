@@ -1,13 +1,12 @@
 import type { MenuProps } from "antd";
 import {
-  BookOutlined,
-  UserOutlined,
+
   ShopOutlined,
   TeamOutlined,
   HomeOutlined,
   ThunderboltOutlined,
   FormOutlined,
-  InboxOutlined,
+
   CopyOutlined,
   PieChartOutlined,
   AppstoreOutlined,

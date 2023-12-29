@@ -115,10 +115,10 @@ const ListFood: React.FC = () => {
   console.log("🚀 ~ file: ListFood.tsx:92 ~ dataFood ~ dataFood:", dataFood);
   const [dataList, setDataList] = useState<any>(null);
   const handleChange: TableProps<DataType>["onChange"] = (
-    pagination,
+
     filters
   ) => {
-    setFilteredInfo(filters);
+    setFilteredInfo((filters as any));
   };
   const onSearch = (value: any, _e: any) => {
     const results = dataFood.filter((item: any) =>

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import ChoosePop from "../../../pages/Clients/ChoosePop/ChoosePop";
-import Header from "../../../Layout/LayoutUser/Header";
-import { Link, useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 import { Button, Result } from "antd";
 
 const ResultPaymentCoin = ({}) => {
   const [showChoosePop, setShowChoosePop] = useState(true);
 
-  const navigate = useNavigate();
+  
   useEffect(() => {
     // Ẩn ChoosePop sau 5 giây
     const timeoutId = setTimeout(() => {

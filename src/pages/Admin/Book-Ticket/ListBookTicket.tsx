@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Badge,
   Button,
   Descriptions,
   Image,
@@ -16,7 +15,6 @@ import {
   useGetBookTicketByAdminQuery,
 } from "../../../service/book_ticket.service";
 
-import AddBookTicket from "./AddBookTicket";
 import { formatter } from "../../../utils/formatCurrency";
 import { FilterValue } from "antd/es/table/interface";
 import { useFetchUsersQuery } from "../../../service/signup_login.service";
@@ -25,7 +23,7 @@ import { useFetchProductQuery } from "../../../service/films.service";
 import { useFetchTimeQuery } from "../../../service/time.service";
 import { useFetchCinemaQuery } from "../../../service/brand.service";
 import { useFetchMovieRoomQuery } from "../../../service/movieroom.service";
-import { any } from "prop-types";
+
 import { compareDates } from "../../../utils";
 
 const ListBookTicket: React.FC = () => {
@@ -49,17 +47,11 @@ const ListBookTicket: React.FC = () => {
   console.log(dataBTKByAdminCinema);
 
   console.log(dataBook_tickets);
-  const filteredDataBookTickets = (dataBook_tickets || []).filter(
-    (item: any) => item.status === 2 || item.status === 3
-  );
-  //chi tiết
-  const [id, setID] = useState<string>("");
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const showModal = (id_book_ticket: any) => {
-    setID(id_book_ticket);
-    setIsModalVisible(true);
-  };
+  //chi tiết
+
+  const [isModalVisible] = useState(false);
+
   const [open, setOpen] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState([]);
   const handleOpen = (record: any) => {
@@ -170,7 +162,7 @@ const ListBookTicket: React.FC = () => {
           {text ? (
             <span className="text-green-500">{text}</span>
           ) : (
-            <span style={{ color: "red" }}>Chưa check</span>
+            <span className="text-red">Chưa check</span>
           )}
         </span>
       ),
@@ -207,7 +199,7 @@ const ListBookTicket: React.FC = () => {
         value: item.name,
       })),
       filteredValue: filteredInfo.food_items || null,
-      onFilter: (value: string, record: any) =>
+      onFilter: (value: any, record: any) =>
         record.food_names && record.food_names.includes(value),
     },
 
@@ -394,13 +386,7 @@ const ListBookTicket: React.FC = () => {
                       label="Mã hóa đơn"
                       labelStyle={{ width: "100px" }}
                     >
-                      <div
-                        style={{
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          width: "150px",
-                        }}
-                      >
+                      <div className="overflow-hidden ellipsis w-[150px]">
                         {(selectedRecord as any)?.id_code}
                       </div>
                     </Descriptions.Item>
@@ -496,11 +482,8 @@ const ListBookTicket: React.FC = () => {
   ];
 
   const [searchTerm, setSearchTerm] = useState("");
-  const handleChange: TableProps<DataType>["onChange"] = (
-    pagination,
-    filters
-  ) => {
-    setFilteredInfo(filters);
+  const handleChange: TableProps<DataType>["onChange"] = (filters) => {
+    setFilteredInfo((filters as any));
   };
   const onSearch = (value: string) => {
     setSearchTerm(value);
@@ -509,7 +492,7 @@ const ListBookTicket: React.FC = () => {
   const filteredData = dataBook_tickets?.filter((item: DataType) =>
     item?.id_code?.toLowerCase()?.includes(searchTerm?.toLowerCase())
   );
-  const filteredDataByAdminCinema = dataBTKByAdminCinema?.filter(
+  const filteredDataByAdminCinema = (dataBTKByAdminCinema as any)?.filter(
     (item: DataType) =>
       item?.id_code?.toLowerCase()?.includes(searchTerm?.toLowerCase())
   );

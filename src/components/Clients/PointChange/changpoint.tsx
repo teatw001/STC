@@ -1,8 +1,8 @@
-import { useState } from "react";
+
 import { useGetPointByIdUserQuery } from "../../../service/member.service";
-import { InputNumber, Space, message } from "antd";
+import { InputNumber, message } from "antd";
 import { formatter } from "../../../utils/formatCurrency";
-import { setChangePoint } from "../../CinemaSlice/selectSeat";
+
 
 interface ChangepointProps {
   point: any;

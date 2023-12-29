@@ -3,11 +3,11 @@ import Header from "../../../Layout/LayoutUser/Header";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useFetchChairsQuery } from "../../../service/chairs.service";
 import { useGetAllDataShowTimeByIdQuery } from "../../../service/show.service";
-import { Button, Col, InputNumber, Row, Space, Statistic, message } from "antd";
-import { useDispatch, useSelector } from "react-redux";
+import { Col, Row, Statistic, message } from "antd";
+import { useDispatch } from "react-redux";
 import Loading from "../../../components/isLoading/Loading";
 import Pusher from "pusher-js";
-import { setKepted } from "../../../components/CinemaSlice/seatkeep";
+
 import {
   setShowtimeId,
   setSelectSeats,
@@ -28,16 +28,13 @@ import {
   useGetAllSeatKepingsQuery,
   useKeptSeatMutation,
 } from "../../../service/seatkeping.service";
-import type { CountdownProps } from "antd";
 
-import { checkSeat } from "../../../guards/api";
 import { useSendPaymentVnPayMutation } from "../../../service/payVnpay.service";
-import { useGetPointByIdUserQuery } from "../../../service/member.service";
+
 import { usePaymentMomoMutation } from "../../../service/payMoMo.service";
 import Changepoint from "../../../components/Clients/PointChange/changpoint";
-import { usePaymentCoinsMutation } from "../../../service/usecoin.service";
+
 import PaymentCoin from "../Payment/PaymentCoin";
-import { useAVG_FilmsQuery } from "../../../service/films.service";
 
 enum SeatStatus {
   Available = "available",
@@ -63,15 +60,10 @@ const BookingSeat = () => {
   const { data: dataAllByTime_Byid } = useGetAllDataShowTimeByIdQuery(
     id as string
   );
-  const [deadline, setDeadline] = useState(Date.now() + 1000 * 60 * 10);
-  const [countdownKey, setCountdownKey] = useState(1); // Change key to reset Countdown
+  const [deadline] = useState(Date.now() + 1000 * 60 * 10);
+  const [countdownKey] = useState(1); // Change key to reset Countdown
 
   const navigate = useNavigate();
-
-  const startCountdown = () => {
-    setDeadline(Date.now() + 1000 * 60 * 10);
-    setCountdownKey((prevKey) => prevKey + 1); // Change key to reset Countdown
-  };
 
   const onFinish = () => {
     navigate("/");
@@ -85,32 +77,15 @@ const BookingSeat = () => {
   };
   // const [keepSeat, setkeepSeat] = useState<[]>([]);
   const { data: DataSeatBooked, isLoading } = useFetchChairsQuery();
-  const [seatingSelect, setSeatingSelect] = useState("");
+
   const { data: foods } = useFetchFoodQuery();
   const { data: dataVouchers } = useFetchVoucherQuery();
   const [payMomo] = usePaymentMomoMutation();
   const [selectedVoucher, setSelectedVoucher] = useState<string | null>(null);
-  const {
-    data: dataSeatKeping,
-    refetch,
-    isLoading: LoadingSeat,
-  } = useGetAllSeatKepingsQuery(`${id}`);
+  const { data: dataSeatKeping } = useGetAllSeatKepingsQuery(`${id}`);
 
   const [keptSeat] = useKeptSeatMutation();
   const [selectedSeats, setSelectedSeats] = useState<SeatInfo[]>([]);
-  // const fetchData = async () => {
-  //   try {
-  //     const data = await checkSeat(id);
-  //     setkeepSeat(data);
-  //   } catch (error) {
-  //     console.error("Lỗi khi kiểm tra ghế đã đặt:", error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   refetch();
-  //   // fetchData();
-  // }, [refetch, selectedSeats, id]);
 
   const [totalComboAmount, setTotalComboAmount] = useState(0);
   const [discountedAmount, setDiscountedAmount] = useState(0);
@@ -176,7 +151,6 @@ const BookingSeat = () => {
   const getuserId = localStorage.getItem("user");
   const userId = JSON.parse(`${getuserId}`);
 
-  const { data: PointUser } = useGetPointByIdUserQuery(userId?.id);
   // console.log(PointUser);
   const { data: VoucherUsedbyUser } = useGetVoucherbyIdUserQuery(userId?.id);
   const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
@@ -520,8 +494,6 @@ const BookingSeat = () => {
   // }
   dispatch(setChangePoint(point));
 
-  const moneyByPoint = useSelector((state: any) => state.TKinformation?.point);
-
   const handlePaymentMomo = async () => {
     if (!selectedPaymentMethod) {
       message.error("Vui lòng chọn phương thức thanh toán.");
@@ -593,10 +565,6 @@ const BookingSeat = () => {
   const seatNames = selectedSeatsInSelectedState
     .map((seat: any) => `${getRowName(seat.row)}${seat.column + 1}`)
     .join(",");
-  const formattedSeats = selectedSeatsInSelectedState.map((seat: any) => ({
-    seat: `${getRowName(seat.row)}${seat.column + 1}`,
-    price: seat.price,
-  }));
 
   dispatch(setSelectSeats(seatNames));
   dispatch(setShowtimeId(id));

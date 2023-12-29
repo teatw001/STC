@@ -41,7 +41,7 @@ const ListCinema: React.FC = () => {
       title: "Tên Rạp",
       dataIndex: "name",
       key: "name",
-      filters: cinemas?.data?.map((item) => ({ text: item.name, value: item.name })),
+      filters: (cinemas as any)?.data?.map((item:any) => ({ text: item.name, value: item.name })),
       filteredValue: filteredInfo.name || null,
       onFilter: (value, record) => record.name === value,
     },
@@ -49,7 +49,7 @@ const ListCinema: React.FC = () => {
       title: "Địa chỉ",
       dataIndex: "address",
       key: "address",
-      filters: cinemas?.data?.map((item) => ({ text: item.address, value: item.address })),
+      filters: (cinemas as any)?.data?.map((item:any) => ({ text: item.address, value: item.address })),
       filteredValue: filteredInfo.address || null,
       onFilter: (value, record) => record.address === value,
     },
@@ -132,8 +132,8 @@ const ListCinema: React.FC = () => {
     const results = dataCate.filter((item: any) => item.name.toLowerCase().includes(value.toLowerCase()))
     setDataList(results)
   }
-  const handleChange: TableProps<DataType>['onChange'] = (pagination, filters) => {
-    setFilteredInfo(filters);
+  const handleChange: TableProps<DataType>['onChange'] = ( filters) => {
+    setFilteredInfo((filters as any));
   };
   return (
     <>

@@ -17,7 +17,7 @@ const columns: ColumnsType<DataType> = [
     title: "Stt",
     dataIndex: "key",
     align: "center",
-    render: (text, record, index) => <span>{index + 1}</span>,
+    render: ( index) => <span>{index + 1}</span>,
     width: "10%",
   },
   {

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSelectedCinema } from "../../components/CinemaSlice/selectedCinemaSlice";
 import { Modal } from "antd";
 import type { MenuProps } from "antd";
-import { Dropdown, Space, Divider, Button, theme } from "antd";
+import { Dropdown } from "antd";
 import { useFetchProductQuery } from "../../service/films.service";
 import { setUserId, updateToken } from "../../components/CinemaSlice/authSlice";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { formatter } from "../../../utils/formatCurrency";
+
 
 interface DataType {
   key: string;
@@ -14,7 +14,7 @@ const columns: ColumnsType<DataType> = [
     title: "Stt",
     dataIndex: "key",
     align: "center",
-    render: (text, record, index) => <span>{index + 1}</span>,
+    render: ( index) => <span>{index + 1}</span>,
     width: "10%",
   },
   {

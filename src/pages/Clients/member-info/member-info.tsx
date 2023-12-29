@@ -1,4 +1,4 @@
-import { Alert, Col, Row, Slider, Statistic } from "antd";
+import { Alert, Col, Statistic } from "antd";
 import "../../../App.css";
 
 import {
@@ -6,24 +6,9 @@ import {
   useGetPointByIdUserQuery,
 } from "../../../service/member.service";
 
-import { any } from "prop-types";
-import { useState } from "react";
 import Marquee from "react-fast-marquee";
 import { formatter } from "../../../utils/formatCurrency";
 import { formatDatee } from "../../../utils";
-
-function getGradientColor(percentage: number) {
-  const endColor = [135, 208, 104];
-  const startColor = [255, 204, 199];
-
-  const midColor = startColor.map((start, i) => {
-    const end = endColor[i];
-    const delta = end - start;
-    return (start + delta * percentage).toFixed(0);
-  });
-
-  return `rgb(${midColor.join(",")})`;
-}
 
 const MemberInfo = () => {
   const { data } = useFetchMembersQuery();
@@ -42,18 +27,8 @@ const MemberInfo = () => {
     <>
       {/* <Header />   */}
       <div className="h-scree bg-white boder ">
-        <div
-          className="mt-10 flow-root rounded-lg border bg-white text-black border-gray-100 py-3 shadow-sm "
-          style={{ maxWidth: "1000px", textAlign: "center", margin: "auto" }}
-        >
-          <h1
-            className="mb-10"
-            style={{
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: "30px",
-            }}
-          >
+        <div className="mt-10 flow-root rounded-lg border w-[1000px] text-center mx-auto bg-white text-black border-gray-100 py-3 shadow-sm ">
+          <h1 className="mb-10 text-center font-bold text-[30px]">
             Thẻ hội viên
           </h1>
 
@@ -141,7 +116,7 @@ const MemberInfo = () => {
           </div>
           {dataUser &&
             dataUser.length > 0 &&
-            dataUser.map((item) => (
+            dataUser.map((item: any) => (
               <Col span={24} key={item.id}>
                 {item.total_spending < 3000000 ? (
                   <>
@@ -149,7 +124,9 @@ const MemberInfo = () => {
                       className=""
                       style={{ fontWeight: "bold", color: "red" }}
                       title="Số tiền chi tiêu"
-                      value={formatter(item.total_spending.toLocaleString())}
+                      value={formatter(
+                        (item as any)?.total_spending?.toLocaleString()
+                      )}
                       suffix="/ 3.000.000 đ"
                     />
                     <Alert

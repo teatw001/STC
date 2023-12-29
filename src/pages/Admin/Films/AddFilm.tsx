@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { UserAddOutlined } from "@ant-design/icons";
 import {
   Button,
@@ -10,14 +10,13 @@ import {
   Input,
   InputNumber,
   Row,
-  Select,
   Space,
   message,
 } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useAddProductMutation } from "../../../service/films.service";
 import { useFetchCateQuery } from "../../../service/cate.service";
-import { ICategorys } from "../../../interface/model";
+
 import { useAddCateDetailMutation } from "../../../service/catedetail.service";
 import { FOLDER_NAME } from "../../../configs/config";
 import { uploadImageApi } from "../../../apis/upload-image.api";
@@ -85,7 +84,7 @@ const AddFilm: React.FC = () => {
   const [isLoadingPoster, setIsLoadingPoster] = useState(false);
   const [uploadPoster, setUploadPoster] = useState<string | null>(null);
 
-  const handleUpdateImage = async (e: any, isPoster: boolean) => {
+  const handleUpdateImage = async (e: any) => {
     setIsLoading(true);
     try {
       const files = e.target.files;
@@ -198,7 +197,7 @@ const AddFilm: React.FC = () => {
                     type="file"
                     value={uploadImage}
                     className="flex-1 !hidden"
-                    onChange={(e) => handleUpdateImage(e, false)}
+                    onChange={(e) => handleUpdateImage(e)}
                     id="update-image"
                   />
                   <label

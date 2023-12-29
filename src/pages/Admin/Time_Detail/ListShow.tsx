@@ -198,15 +198,12 @@ const ListShow: React.FC = () => {
       room_id: (roomBrand as any)?.data?.find(
         (room: IMovieRoom) => room.id === show.room_id
       )?.name,
-      name: show.name,
+      name: show?.name,
       status: show.status,
     };
   });
 
-  const handleChange: TableProps<DataType>["onChange"] = (
-    pagination,
-    filters
-  ) => {
+  const handleChange: TableProps<DataType>["onChange"] = (filters) => {
     console.log(filters);
 
     setFilteredInfo(filters);

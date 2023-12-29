@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Button, Form, Input, Mentions, Rate, Space, message } from "antd";
+import { Button, Form, Input, Rate, Space, message } from "antd";
 import {
   useAddCommentFilmMutation,
   useGetCommentByUserIdQuery,
 } from "../../../service/commentfilm.service";
 
-const { getMentions } = Mentions;
+
 const { TextArea } = Input;
 interface CommentFilmProps {
   dataidfilm: any;

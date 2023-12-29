@@ -3,6 +3,7 @@ import { ClimbingBoxLoader, PropagateLoader } from "react-spinners";
 
 const ChoosePop = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
+  console.log(scrollPosition);
 
   useEffect(() => {
     const handleScroll = () => {

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { Button, QRCode, Result, Space } from "antd";
+import {  useSelector } from "react-redux";
+import { Button, QRCode, Result } from "antd";
 import {
   useAddChairsMutation,
   useFetchChairsQuery,
@@ -20,6 +20,8 @@ import { useDiscountPointMutation } from "../../../service/member.service";
 const Payment = () => {
   const location = useLocation();
   const [vnpAmount, setVnpAmount] = useState("");
+  console.log(vnpAmount);
+  
   const { data: allchairbked } = useFetchChairsQuery();
   const [addIfSeatByUser] = useAddBookTicketMutation();
   const [addFood] = useAddFoodTicketDetailMutation();
@@ -38,7 +40,7 @@ const Payment = () => {
   const totalPriceSeat = useSelector(
     (state: any) => state.TKinformation?.totalPriceSeat
   );
-  const dispatch = useDispatch();
+ 
   const formatter = (value: number) =>
     `${value} ₫`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   const selectingSeat = useSelector(

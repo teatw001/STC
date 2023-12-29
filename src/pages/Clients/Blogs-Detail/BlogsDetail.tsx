@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
   useFetchBlogQuery,
@@ -52,17 +52,14 @@ const BlogsDetail = () => {
               <article className="overflow-hidden rounded-lg    shadow-sm">
                 <img
                   alt="Office"
-                  srcSet={blog?.data.image}
-                  style={{ width: "800px" }}
-                  className="h-32 w-full object-cover md:h-full"
+                  srcSet={(blog as any)?.data?.image}
+                  className="h-32 w-full object-cover md:h-full "
                 />
                 <div className="p-4  ">
                   <a href="#">
-                    <h3 style={{ fontSize: "1.3rem" }} className="font-bold ">
-                      {blog?.data.title}
-                    </h3>
+                    <h3 className="font-bold ">{(blog as any)?.data?.title}</h3>
                   </a>
-                  <p className="mt-2 text-sm">{blog?.data.content}</p>
+                  <p className="mt-2 text-sm">{(blog as any)?.data.content}</p>
 
                   <br />
 
@@ -90,7 +87,7 @@ const BlogsDetail = () => {
 
                   <div className="What’s On img my-10 grid grid-cols-3 gap-8">
                     {blogs &&
-                      blogs?.data?.map((blog: IBlogs) =>
+                      (blogs as any)?.data?.map((blog: IBlogs) =>
                         blog.status === 1 ? (
                           <article
                             key={blog.id}

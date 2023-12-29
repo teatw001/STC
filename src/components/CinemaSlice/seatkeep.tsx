@@ -7,7 +7,7 @@ const SeatKeptedSlice = createSlice({
   initialState: [],
   reducers: {
     // Action để lưu chi nhánh rạp được chọn
-    setKepted: (state, action) => {
+    setKepted: (action: any) => {
       return action.payload;
     },
   },

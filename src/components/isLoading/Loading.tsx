@@ -1,6 +1,6 @@
-import React from "react";
+
 import { PacmanLoader } from "react-spinners";
-import Header from "../../Layout/LayoutUser/Header";
+
 
 const Loading = () => {
   return (

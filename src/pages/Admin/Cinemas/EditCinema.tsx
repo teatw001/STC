@@ -2,22 +2,22 @@ import React, { useEffect, useState } from "react";
 import { EditOutlined } from "@ant-design/icons";
 
 import { useNavigate } from "react-router-dom";
-import moment from "moment";
+
 import {
   Button,
   Col,
-  DatePicker,
+
   Drawer,
   Form,
   Input,
   Row,
-  Select,
+
   Space,
   message,
 } from "antd";
 import { useUpdateCinemaMutation } from "../../../service/brand.service";
 
-const { Option } = Select;
+
 interface DataType {
   id: string;
   name: string;

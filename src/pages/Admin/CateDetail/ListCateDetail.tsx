@@ -42,7 +42,7 @@ const ListCateDetail: React.FC = () => {
       title: "Tên Danh Mục",
       dataIndex: "category_id",
       key: "category_id",
-      filters: cates?.data?.map((item) => ({
+      filters: (cates as any)?.data?.map((item:any) => ({
         text: item.name,
         value: item.name,
       })),
@@ -54,7 +54,7 @@ const ListCateDetail: React.FC = () => {
       title: "Phim",
       dataIndex: "film_id",
       key: "film_id",
-      filters: films?.data?.map((item) => ({
+      filters: (films as any)?.data?.map((item:any) => ({
         text: item.name,
         value: item.name,
       })),
@@ -115,10 +115,10 @@ const ListCateDetail: React.FC = () => {
     setDataList(results);
   };
   const handleChange: TableProps<DataType>["onChange"] = (
-    pagination,
+ 
     filters
   ) => {
-    setFilteredInfo(filters);
+    setFilteredInfo((filters as any));
   };
   return (
     <>

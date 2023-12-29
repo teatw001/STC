@@ -2,9 +2,9 @@ import Header from "../../../Layout/LayoutUser/Header";
 import { useFetchProductQuery } from "../../../service/films.service";
 import FilmShowing from "../../../components/FilmShowing";
 import { IFilms } from "../../../interface/model";
-import { compareDates, compareReleaseDate, formatDate } from "../../../utils";
+import { compareDates, compareReleaseDate } from "../../../utils";
 
-import { useAppSelector } from "../../../store/hooks";
+
 
 const Movies = () => {
   const { data } = useFetchProductQuery() as any;

@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { Button, Modal } from "antd";
 import { Link } from "react-router-dom";
 const ModalSuatChieu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
+
 
   const handleOk = () => {
     setIsModalOpen(false);

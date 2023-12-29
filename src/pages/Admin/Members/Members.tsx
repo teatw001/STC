@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Space, Table, Button, Popconfirm, Tag } from "antd";
+import { Table, Tag } from "antd";
 import type { ColumnsType, TableProps } from "antd/es/table";
-import { DeleteOutlined } from "@ant-design/icons";
+
 import { useFetchMembersQuery } from "../../../service/member.service";
-import { IUser } from "../../../interface/model";
+
 import { FilterValue } from "antd/es/table/interface";
 import Search from "antd/es/input/Search";
 import { useFetchUsersQuery } from "../../../service/signup_login.service";
@@ -27,7 +27,7 @@ const MemberInfoAdmin = () => {
     `${value} ₫`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   // Lọc ra các giá trị duy nhất từ danh sách rạp chiếu
   const getUniqueValues = (dataList: any, key: any) => {
-    return Array.from(new Set(dataList?.data?.map((item) => item[key])));
+    return Array.from(new Set(dataList?.data?.map((item:any) => item[key])));
   };
 
   const columns: ColumnsType<DataType> = [
@@ -126,7 +126,7 @@ const MemberInfoAdmin = () => {
   );
   const [dataList, setDataList] = useState<any>(null);
   const handleChange: TableProps<DataType>["onChange"] = (
-    pagination,
+
     filters
   ) => {
     setFilteredInfo(filters);

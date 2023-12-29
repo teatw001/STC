@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import moment, { Moment } from "moment";
-import type { DatePickerProps, TimePickerProps } from "antd";
-import { DatePicker, Select, Space, TimePicker } from "antd";
-import { Dayjs } from "dayjs"; // Import Dayjs type
+
+import { DatePicker, Select, Space } from "antd";
+
 
 const { Option } = Select;
 
@@ -21,7 +21,7 @@ const PickerWithType = ({
   setMonth: React.Dispatch<React.SetStateAction<number | undefined>>;
   setYear: React.Dispatch<React.SetStateAction<number | undefined>>;
 }) => {
-  const handleChange = (value: Moment | null, dateString: string) => {
+  const handleChange = (value: Moment | null) => {
     let day: number | undefined;
     let month: number | undefined;
     let year: number | undefined;
@@ -83,12 +83,12 @@ interface ChooseTimeProps {
   setYear: any;
 }
 const ChooseTime: React.FC<ChooseTimeProps> = ({
-  day,
+
   setDay,
   setMonth,
-  month,
+  
   setYear,
-  year,
+ 
 }) => {
   const [type, setType] = useState<PickerType>("date");
 

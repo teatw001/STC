@@ -7,7 +7,7 @@ const QrCode: React.FC = () => {
   return (
     <>
       <Space>
-        <QRCode type="canvas" value={{ id_code }} />
+        <QRCode type="canvas" value={{ id_code } as any} />
       </Space>
     </>
   );

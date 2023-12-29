@@ -171,10 +171,10 @@ const ListMovieRoom: React.FC = () => {
 
   const [dataList, setDataList] = useState<any>(null);
   const handleChange: TableProps<DataType>["onChange"] = (
-    pagination,
+
     filters
   ) => {
-    setFilteredInfo(filters);
+    setFilteredInfo((filters as any));
   };
   const onSearch = (value: any, _e: any) => {
     if (role === 1) {

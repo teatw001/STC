@@ -7,7 +7,7 @@ const selectedCinemaSlice = createSlice({
   initialState: null,
   reducers: {
     // Action để lưu chi nhánh rạp được chọn
-    setSelectedCinema: (state, action) => {
+    setSelectedCinema: (action: any) => {
       return action.payload;
     },
   },

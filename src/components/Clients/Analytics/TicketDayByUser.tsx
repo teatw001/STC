@@ -4,7 +4,7 @@ interface TicketDayByUserProps {
   data: any;
 }
 import type { ColumnsType } from "antd/es/table";
-import { formatter } from "../../../utils/formatCurrency";
+
 const TicketDayByUser: React.FC<TicketDayByUserProps> = ({ data }) => {
   console.log(data);
   interface DataType {
@@ -18,7 +18,7 @@ const TicketDayByUser: React.FC<TicketDayByUserProps> = ({ data }) => {
       title: "Stt",
       dataIndex: "key",
       align: "center",
-      render: (text, record, index) => <span>{index + 1}</span>,
+      render: ( index) => <span>{index + 1}</span>,
     },
     {
       title: "Tên",

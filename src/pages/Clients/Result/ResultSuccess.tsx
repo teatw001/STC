@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { Link, useLocation } from "react-router-dom";
 
-import { Button, QRCode, Result, Space } from "antd";
+import { Button, Result } from "antd";
 
 import { useRechargeByMomoMutation } from "../../../service/payMoMo.service";
 import { setMoney } from "../../../components/ChoosePayment/ChoosePayment";
@@ -14,7 +14,7 @@ const ResultSuccess = () => {
   const dispatch = useDispatch();
   const [recharge] = useRechargeByMomoMutation();
   const params = new URLSearchParams(location.search);
-  const amount = params.get("amount") || "";
+
   const money2 = useSelector((state: any) => state.Paymentmethod?.coin);
   console.log(money2);
   const TransactionStatus = params.get("resultCode") || "";

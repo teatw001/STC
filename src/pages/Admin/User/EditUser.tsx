@@ -50,8 +50,8 @@ const EditUser: React.FC<EditUserProps> = ({ dataUser }) => {
   const onFinish = async (values: any) => {
     try {
       const res = await updateUser({ ...values, id: dataUser.id });
-      if (res?.error) {
-        message.error(res?.error.data.errors.email);
+      if ((res as any)?.error) {
+        message.error((res as any)?.error?.data.errors.email);
       } else {
         message.success("Cập nhật quyền hạn thành công");
 

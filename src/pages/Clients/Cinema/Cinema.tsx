@@ -20,6 +20,7 @@ const Cinema = () => {
         <div className="py-[60px] flex justify-center items-center ">
           <span className="text-[#8E8E8E] mr-[20px] ">Tìm Kiếm CGV tại</span>
           <select
+            title="......"
             className="rounded-[40px] px-6 py-2  text-white hover: bg-red-600 "
             name=""
             id=""

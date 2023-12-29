@@ -2,17 +2,16 @@ import Header from "../../../Layout/LayoutUser/Header";
 import { Link } from "react-router-dom";
 import FindBookQuickly from "../../../components/Find&BookQuickly/Find&BookQuickly";
 import { useFetchBlogQuery } from "../../../service/blog.service";
-import { compareDates, compareReleaseDate } from "../../../utils";
-import { useAppSelector } from "../../../store/hooks";
+
 import { IBlogs } from "../../../interface/model";
-import FilmShowing from "../../../components/FilmShowing";
+
 import { useState } from "react";
 import "../../../index.css";
 
 const HomePages = () => {
   const [displayedBlogs, setDisplayedBlogs] = useState(3);
 
-  const { data: blogs, error } = useFetchBlogQuery() as any;
+  const { data: blogs } = useFetchBlogQuery() as any;
 
   console.log(blogs);
   const handleShowMore = () => {

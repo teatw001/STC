@@ -5,7 +5,7 @@ const vouchersAPI = createApi({
   reducerPath: "vouchers",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://stcinemas.id.vn/api/",
-    prepareHeaders: (headers, { getState }) => {
+    prepareHeaders: (headers) => {
       // Add your authorization header here
       const token = localStorage.getItem("authToken");
       if (token) {

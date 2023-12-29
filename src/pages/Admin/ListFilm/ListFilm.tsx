@@ -200,10 +200,10 @@ const ListFilm: React.FC = () => {
     setMovise(results);
   };
   const handleChange: TableProps<DataType>["onChange"] = (
-    pagination,
+
     filters
   ) => {
-    setFilteredInfo(filters);
+    setFilteredInfo((filters as any));
   };
   return (
     <>

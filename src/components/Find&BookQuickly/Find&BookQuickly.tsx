@@ -81,7 +81,7 @@ const FindBookQuickly: React.FC = () => {
                 </Menu.Item>
               </Menu>
             }
-            placement="right"
+            placement="bottomRight"
             arrow
           >
             <a onClick={() => handleFilmSelect(film.id)}>{film.name}</a>

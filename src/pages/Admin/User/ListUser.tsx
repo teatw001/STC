@@ -32,8 +32,8 @@ const ListUser: React.FC = () => {
     Record<string, FilterValue | null>
   >({});
   // Lọc ra các giá trị duy nhất từ danh sách rạp chiếu
-  const unique = Array.from(new Set(users?.data?.map((item) => item.name)));
-  console.log(cinema?.data[0].id);
+  const unique = Array.from(new Set((users as any)?.data?.map((item:any) => item.name)));
+
 
   const columns: ColumnsType<DataType> = [
     {
@@ -46,7 +46,7 @@ const ListUser: React.FC = () => {
       title: "Tên User",
       dataIndex: "name",
       key: "name",
-      filters: unique?.map((item) => ({ text: item, value: item })),
+      filters: (unique as any)?.map((item:any) => ({ text: item, value: item })),
       filteredValue: filteredInfo.name || null,
       onFilter: (value: any, record) => record.name === value,
     },
@@ -93,7 +93,7 @@ const ListUser: React.FC = () => {
       dataIndex: "id_cinema",
       key: "id_cinema",
       render: (value) => {
-        const cinemabyID = cinema?.data.find((x) => x.id === value);
+        const cinemabyID = (cinema as any)?.data.find((x:any) => x.id === value);
         // Nếu có sự khớp, trả về tên rạp chiếu, ngược lại trả về rỗng
         return cinemabyID ? <span>{cinemabyID.name}</span> : null;
       },
@@ -139,10 +139,10 @@ const ListUser: React.FC = () => {
   }));
   const [dataList, setDataList] = useState<any>(null);
   const handleChange: TableProps<DataType>["onChange"] = (
-    pagination,
+
     filters
   ) => {
-    setFilteredInfo(filters);
+    setFilteredInfo((filters as any));
   };
   const onSearch = (value: any, _e: any) => {
     const results = dataUser.filter((item: any) =>

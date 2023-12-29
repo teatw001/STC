@@ -22,7 +22,7 @@ const VocuherByUserAnalytics: React.FC<VocuherByUserAnalyticsProps> = ({
       title: "Stt",
       dataIndex: "key",
       align: "center",
-      render: (text, record, index) => <span>{index + 1}</span>,
+      render: ( index) => <span>{index + 1}</span>,
     },
     {
       title: "Mã voucher",

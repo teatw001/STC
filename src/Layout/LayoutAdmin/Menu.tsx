@@ -1,13 +1,9 @@
 import { useState } from "react";
 import {
-  BookOutlined,
-  UserOutlined,
-  ShopOutlined,
   TeamOutlined,
   HomeOutlined,
   ThunderboltOutlined,
   FormOutlined,
-  InboxOutlined,
   CopyOutlined,
   PieChartOutlined,
   AppstoreOutlined,
@@ -15,9 +11,8 @@ import {
 import type { MenuProps } from "antd";
 
 import { Layout, Menu, theme } from "antd";
-import { itemStaffs, itemsAdmin, itemsAdmin3 } from "./staff";
-import { useAppSelector } from "../../store/hooks";
-import { RootState } from "../../store/store";
+import { itemStaffs, itemsAdmin3 } from "./staff";
+
 import { Link, NavLink } from "react-router-dom";
 
 const { Content, Sider } = Layout;

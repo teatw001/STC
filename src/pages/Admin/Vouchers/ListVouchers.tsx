@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Space, Table, Input, Button, Image, Popconfirm, Tag } from "antd";
+import { Space, Table, Input, Button, Popconfirm, Tag } from "antd";
 import type { ColumnsType, TableProps } from "antd/es/table";
 import { DeleteOutlined } from "@ant-design/icons";
 
@@ -152,10 +152,10 @@ const ListVouchers: React.FC = () => {
 
   const [dataList, setDataList] = useState<any>(null);
   const handleChange: TableProps<DataType>["onChange"] = (
-    pagination,
+
     filters
   ) => {
-    setFilteredInfo(filters);
+    setFilteredInfo((filters as any));
   };
   const onSearch = (value: any, _e: any) => {
     const results = dataVoucher.filter((item: any) =>

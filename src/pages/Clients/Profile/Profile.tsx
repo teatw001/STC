@@ -8,6 +8,8 @@ import { uploadImageApi } from "../../../apis/upload-image.api";
 const Profile = () => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
+  console.log(image);
+
   const [phone, setPhone] = useState(0);
   const [date_of_birth, setDdate_of_birth] = useState("");
   const [email, setEmail] = useState("");
@@ -172,6 +174,7 @@ const Profile = () => {
                 Họ Tên
               </label>
               <input
+                title="đaadada"
                 type="text"
                 className="mt-1 w-full h-[30px] rounded-md bg-gray-200 border-gray-500 bg-gray text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
                 value={name || ""}
@@ -185,6 +188,7 @@ const Profile = () => {
               </label>
 
               <input
+                title="đaadadaad"
                 type="text"
                 value={phone || ""}
                 onChange={(e) => setPhone(+e.target.value)}
@@ -197,6 +201,7 @@ const Profile = () => {
               </label>
 
               <input
+                title="đaađaaddadada"
                 type="date"
                 value={date_of_birth || ""}
                 onChange={(e) => setDdate_of_birth(e.target.value)}
@@ -210,6 +215,7 @@ const Profile = () => {
               </label>
 
               <input
+                title="đaaadasdasddada"
                 type="email"
                 disabled
                 value={email || ""}
@@ -238,6 +244,7 @@ const Profile = () => {
                   </label>
 
                   <input
+                    title="đaaấdasdasddada"
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}
                     className="mt-1 w-full h-[30px] rounded-md border-gray-200 bg-gray-200 text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
@@ -250,6 +257,7 @@ const Profile = () => {
                   </label>
 
                   <input
+                    title="đưeqeqqeaadada"
                     type="password"
                     value={new_password ? new_password : ""}
                     onChange={(e) => setNewPassword(e.target.value)}
@@ -262,6 +270,7 @@ const Profile = () => {
                   </label>
 
                   <input
+                    title="đa232131adada"
                     type="password"
                     onChange={(e) => setConfirmPassWord(e.target.value)}
                     className="mt-1 w-full h-[30px] rounded-md border-gray-200 bg-gray-200 text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"

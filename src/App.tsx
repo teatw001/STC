@@ -24,7 +24,7 @@ import ListTime from "./pages/Admin/time/listTime";
 
 import { setSelectedCinema } from "./components/CinemaSlice/selectedCinemaSlice";
 import { updateToken, setUserId } from "./components/CinemaSlice/authSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Payment from "./pages/Clients/Payment/Payment";
 
 import ChoosePop from "./pages/Clients/ChoosePop/ChoosePop";

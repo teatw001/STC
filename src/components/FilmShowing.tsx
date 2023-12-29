@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Modal } from "antd";
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const FilmShowing = ({ data }: Props) => {
-  const { data: getCateAll, isLoading } = useGetAllCateDetailByFilmQuery();
+  const { data: getCateAll } = useGetAllCateDetailByFilmQuery();
   const { data: Rating } = useGetCommentByUserIdQuery(`${data.id}`);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
@@ -111,7 +111,6 @@ const FilmShowing = ({ data }: Props) => {
               allowFullScreen
               src={`https://www.youtube.com/embed/${data.trailer}?autoplay=1`}
               title=" Official Trailer "
-              allow="autoplay"
             ></iframe>
           </Modal>
         </div>

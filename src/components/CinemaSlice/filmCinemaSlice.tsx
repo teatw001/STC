@@ -5,7 +5,7 @@ export const filmCinemaSlice = createSlice({
   name: "filmCinema",
   initialState: null, // Khởi tạo bằng null hoặc giá trị mặc định khác
   reducers: {
-    setFilmCinemaData: (state, action) => {
+    setFilmCinemaData: (action: any) => {
       return action.payload;
     },
   },

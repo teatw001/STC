@@ -3,8 +3,8 @@ import { Button, Result } from "antd";
 import { useEffect, useState } from "react";
 
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { QRCode, Space } from "antd";
+import {  useSelector } from "react-redux";
+import { QRCode } from "antd";
 import {
   useAddChairsMutation,
   useFetchChairsQuery,
@@ -22,6 +22,8 @@ import { useDiscountPointMutation } from "../../../service/member.service";
 const PaymentMomo: React.FC = () => {
   const location = useLocation();
   const [vnpAmount, setVnpAmount] = useState("");
+  console.log(vnpAmount);
+  
   const { data: allchairbked } = useFetchChairsQuery();
   const [addIfSeatByUser] = useAddBookTicketMutation();
   const [addFood] = useAddFoodTicketDetailMutation();
@@ -36,10 +38,10 @@ const PaymentMomo: React.FC = () => {
   const parsedPopCorn = useSelector(
     (state: any) => state.TKinformation?.comboFoods
   );
-  const getuserId = localStorage.getItem("user");
-  const userId = JSON.parse(`${getuserId}`);
 
-  const dispatch = useDispatch();
+
+
+
   const formatter = (value: number) =>
     `${value} ₫`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   const selectingSeat = useSelector(

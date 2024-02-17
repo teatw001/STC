@@ -4,7 +4,6 @@ import { setupListeners } from "@reduxjs/toolkit/query/react";
 import filmsAPI from "../service/films.service";
 import categorysAPI from "../service/cate.service";
 import {
-  persistStore,
   persistReducer,
   FLUSH,
   REHYDRATE,
@@ -85,7 +84,7 @@ const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const store = configureStore({
+export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => {
     const middlewareArray = getDefaultMiddleware({
@@ -124,9 +123,9 @@ const store = configureStore({
 });
 
 setupListeners(store.dispatch);
-const persistor = persistStore(store);
+// const persistor = persistStore(store);
 
-export { store, persistor };
+// export { store, persistor };
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

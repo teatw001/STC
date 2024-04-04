@@ -1,6 +1,7 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import LayoutUser from "./Layout/LayoutUser/LayoutUser";
 import HomePages from "./pages/Clients/Homepages/home";
+import Ticket from "./pages/Clients/TICKET/Ticket";
 // import BookingSeat from "./pages/Clients/TICKET - SEAT LAYOUT/seat";
 // import Movie_About from "./pages/Clients/MOVIE-ABOUT/Movie-About";
 // import Ticket from "./pages/Clients/TICKET/Ticket";
@@ -20,12 +21,13 @@ const App = () => {
       <Link to="/notes">NotesView</Link> */}
       <Routes>
         <Route path="/" element={<LayoutUser />}>
-          <Link to="/">
+          <Route path="/ticket" element={<Ticket />} />
+          {/* <Link to="/">
             <HomePages />
-          </Link>
+          </Link> */}
           {/* <Route path="/book-ticket/:id" element={<BookingSeat />} />
           <Route path="/movie_about/:id" element={<Movie_About />} />
-          <Route path="/ticket" element={<Ticket />} />
+      
           <Route path="/movies" element={<Movies />} />
           <Route path="/resultpaymentcoins" element={<ResultPaymentCoin />} />
           <Route path="/F&B" element={<F_B />} />

@@ -16,32 +16,20 @@ import Ticket from "./pages/Clients/TICKET/Ticket";
 const App = () => {
   return (
     <BrowserRouter>
-      <Link to="/ticket">Ticket</Link>;
-      {/* <Link to="/">TwittersView</Link> &nbsp;
-   
-      <Link to="/notes">NotesView</Link> */}
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/ticket">Ticket</Link>
+          </li>
+        </ul>
+      </nav>
+
       <Routes>
-        <Route path="/" element={<LayoutUser />}>
-          <Route path="/ticket" element={<Ticket />} />
-          {/* <Link to="/">
-            <HomePages />
-          </Link> */}
-          {/* <Route path="/book-ticket/:id" element={<BookingSeat />} />
-          <Route path="/movie_about/:id" element={<Movie_About />} />
-      
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/resultpaymentcoins" element={<ResultPaymentCoin />} />
-          <Route path="/F&B" element={<F_B />} />
-          <Route path="/cinema" element={<Cinema />} />
-          <Route path="/orther" element={<Orther />} />
-          <Route path="/choosepop" element={<ChoosePop />} />
-          <Route
-            path="/Tiketbookingdetail"
-            element={<TicketBookingDetails />}
-          />
-          {/* <Route path="/blog/:id" element={<BlogsDetail/>} /> */}
-          {/* <Route path="/F&B" element={<F_B />} /> */}
-        </Route>
+        <Route path="/" element={<LayoutUser />} />
+        <Route path="/ticket" element={<Ticket />} />
       </Routes>
     </BrowserRouter>
   );

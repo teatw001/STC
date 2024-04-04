@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import LayoutUser from "./Layout/LayoutUser/LayoutUser";
 // import HomePages from "./pages/Clients/Homepages/home";
 import Ticket from "./pages/Clients/TICKET/Ticket";
@@ -16,8 +16,9 @@ import Ticket from "./pages/Clients/TICKET/Ticket";
 const App = () => {
   return (
     <BrowserRouter>
+      <Link to="/ticket">Ticket</Link>;
       {/* <Link to="/">TwittersView</Link> &nbsp;
-      <Link to="/articles">ArticlesView</Link> &nbsp;
+   
       <Link to="/notes">NotesView</Link> */}
       <Routes>
         <Route path="/" element={<LayoutUser />}>

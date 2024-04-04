@@ -1,6 +1,6 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LayoutUser from "./Layout/LayoutUser/LayoutUser";
-import HomePages from "./pages/Clients/Homepages/home";
+// import HomePages from "./pages/Clients/Homepages/home";
 import Ticket from "./pages/Clients/TICKET/Ticket";
 // import BookingSeat from "./pages/Clients/TICKET - SEAT LAYOUT/seat";
 // import Movie_About from "./pages/Clients/MOVIE-ABOUT/Movie-About";

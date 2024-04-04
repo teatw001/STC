@@ -8,7 +8,7 @@ import HomePages from "./pages/Clients/Homepages/home";
 // import Ticket from "./pages/Clients/TICKET/Ticket";
 // import Movies from "./pages/Clients/Movies/Movies";
 // import F_B from "./pages/Clients/F&B/F&B";
-// import Login from "./pages/Clients/Login/Login";
+import Login from "./pages/Clients/Login/Login";
 // import LayoutAdmin from "./Layout/LayoutAdmin/LayoutAdmin";
 // import ListFilm from "./pages/Admin/ListFilm/ListFilm";
 // import { useEffect } from "react";
@@ -220,10 +220,10 @@ import HomePages from "./pages/Clients/Homepages/home";
 //     //     // },
 //     //   ],
 //     // },
-//     // {
-//     //   path: "/login",
-//     //   element: <Login />,
-//     // },
+    // {
+    //   path: "/login",
+    //   element: <Login />,
+    // },
 //     // {
 //     //   path: "/payment/:id_code",
 //     //   element: <Payment />,
@@ -282,7 +282,10 @@ function App() {
           path: "/",
           element: <HomePages />,
         },
-
+{
+  path: "/login",
+  element: <Login />,
+},
         // {
         //   path: "/search",
         //   element: <Search />,

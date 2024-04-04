@@ -5,7 +5,7 @@ import BookingSeat from "./pages/Clients/TICKET - SEAT LAYOUT/seat";
 import Movie_About from "./pages/Clients/MOVIE-ABOUT/Movie-About";
 import Ticket from "./pages/Clients/TICKET/Ticket";
 import Movies from "./pages/Clients/Movies/Movies";
-import ResultPaymentCoin from "./components/Clients/ResultPaymentCoin/ResultPaymentCoin";
+// import ResultPaymentCoin from "./components/Clients/ResultPaymentCoin/ResultPaymentCoin";
 import F_B from "./pages/Clients/F&B/F&B";
 import Cinema from "./pages/Clients/Cinema/Cinema";
 import Orther from "./pages/Clients/Orther/Orther";

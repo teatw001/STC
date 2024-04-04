@@ -25,7 +25,7 @@ const App = () => {
           <Route path="/movie_about/:id" element={<Movie_About />} />
           <Route path="/ticket" element={<Ticket />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/resultpaymentcoins" element={<ResultPaymentCoin />} />
+          {/* <Route path="/resultpaymentcoins" element={<ResultPaymentCoin />} /> */}
           <Route path="/F&B" element={<F_B />} />
           <Route path="/cinema" element={<Cinema />} />
           <Route path="/orther" element={<Orther />} />
